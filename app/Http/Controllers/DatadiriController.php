@@ -27,6 +27,7 @@ use App\Exports\DokumenExport;
 use App\Exports\AnakExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\DatadiriImport;
+use App\Imports\KeluargaImport;
 use Illuminate\Support\Str;
 
 class DatadiriController extends Controller
@@ -156,7 +157,21 @@ class DatadiriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Datadiri::findOrFail($id);
+        $item->delete();
+
+        $hapus_diri = $item->user_id;
+        User::where('id', $hapus_diri)->delete();
+        Keluarga::where('datadiri_id', $item->id)->delete();
+        Anak::where('datadiri_id', $item->id)->delete();
+        Kepemilikan::where('datadiri_id', $item->id)->delete();
+        Pekerjaan::where('datadiri_id', $item->id)->delete();
+        Pelayanan::where('datadiri_id', $item->id)->delete();
+        Pendidikan::where('datadiri_id', $item->id)->delete();
+        Prestasi::where('datadiri_id', $item->id)->delete();
+        Dokumen::where('datadiri_id', $item->id)->delete();
+
+        return redirect()->route('datadiri.index')->with('success', 'Data Berhasil Dihapus');
     }
 
     public function importExcelDiri(Request $request)
@@ -218,6 +233,19 @@ class DatadiriController extends Controller
         $kel->save();
 
         return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+    }
+
+    public function importExcelKel(Request $request)
+    {
+        // Excel::import(new SiswaImport, $request->file('DataSiswa'));
+        $file = $request->file('file');
+        // dd($file);
+        $namaFile = $file->getClientOriginalName();
+        $file->move('DataKel', $namaFile);
+
+        Excel::import(new KeluargaImport, public_path('/DataKel/'.$namaFile));
+
+        return redirect()->route('datadiri.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     // Data Kepemilikan

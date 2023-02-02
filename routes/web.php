@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function(){
     Route::prefix('admin')->group(function () {
-        Route::get('/', [DashboardController::class, 'index']);
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     
         Route::post('datadiri/importExcelDiri', [DatadiriController::class, 'importExcelDiri'])->name('importExcelDiri');
         Route::resource('datadiri', DatadiriController::class);

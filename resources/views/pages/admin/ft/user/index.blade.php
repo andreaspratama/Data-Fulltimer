@@ -54,7 +54,6 @@
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,7 +62,6 @@
                                 <td>{{$i->name}}</td>
                                 <td>{{$i->email}}</td>
                                 <td>{{$i->role}}</td>
-                                <td>Aksi</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -28,19 +28,16 @@ class KeluargaImport implements ToModel
 
     public function model(array $row)
     {
-        if ($row[3] === null) {
-            $tgl = $row[3];
-        } else {
-            $tgl = new Carbon($row[3]);
-        }
-        
+        $tgl = strtr($row[3], '/', '-');
+        $htgl = date('Y-m-d', strtotime($tgl));
 
         $datadiri = $this->datadiri->where('email', $row[6])->first();
+
         return new Keluarga([
             'status' => $row[0],
             'namaPasa' => $row[1],
             'tlahirPasa' => $row[2],
-            'tgllahirPasa' => $tgl,
+            'tgllahirPasa' => $htgl,
             'pekerjaanPasa' => $row[4],
             'pend_akhir' => $row[5],
             'datadiri_id' => $datadiri->id ?? NULL,

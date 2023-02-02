@@ -44,6 +44,7 @@
                         </div>
                         </div>
                     </div>
+                    <a href="{{route('datadiri.create')}}" class="btn btn-primary mt-2">Tambah Data</a>
                 @endif
             </div>
             <div class="card-body">
@@ -58,11 +59,18 @@
                         @foreach ($items as $i)
                             @if (Auth::user()->role === 'Admin')
                                 <tr>
-                                    <td>{{$i->nama}}</td>
+                                    <td width="70%">{{$i->nama}}</td>
                                     <td>
                                         <a href="{{route('datadiri.show', $i->id)}}" class="btn btn-info btn-sm">
                                             Detail
                                         </a>
+                                        <form action="{{route('datadiri.destroy', $i->id)}}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-sm">
+                                                Hapus
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>                          
                             @endif

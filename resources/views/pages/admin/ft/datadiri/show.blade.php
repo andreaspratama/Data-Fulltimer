@@ -103,6 +103,37 @@
                     </tr>
                 @endif
               </table>
+              @if ($dk === null)
+                  @if (Auth::user()->role === 'Admin')
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                      Import Data
+                    </button>
+                  
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{route('importExcelKel')}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                      <label for="exampleFormControlFile1">Pilih File</label>
+                                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Import</button>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                  @endif
+              @endif
               @if ($dk != null)
                   <a href="{{route('kelEdit', $dk->id)}}" class="btn btn-warning btn-sm">
                     Edit Data
@@ -113,35 +144,9 @@
                     </a>
                   @endif
               @endif
-              @if ($dk === null)
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                  Import Data
-                </button>
-              
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="{{route('importExcelKel')}}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                  <label for="exampleFormControlFile1">Pilih File</label>
-                                  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Import</button>
-                            </form>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-              @endif
+              {{-- @if ($dk === null)
+                
+              @endif --}}
             </div>
         </div>
 
