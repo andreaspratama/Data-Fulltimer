@@ -17,7 +17,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit Data Anak {{$dt->nama}}</h6>
             </div>
             <div class="card-body">
-                <form action="/admin/anakUpdate/{{$kbl->datadiri_id}}" method="POST">
+                <form action="/gbt/anakUpdate/{{$kbl->datadiri_id}}" method="POST">
                     @csrf
                     @method('PUT')
                     @foreach ($anak as $ank)
@@ -53,7 +53,7 @@
                     </div>
                     <div class="tambahLagi mt-3"></div>
                     <button type="submit" class="btn btn-success mt-3" style="margin-top: 10px">Simpan</button>
-                    <a href="/admin/datadiri/{{$kbl->datadiri_id}}" class="btn btn-secondary float-right">Batal</a>
+                    <a href="/gbt/datadiri/{{$kbl->datadiri_id}}" class="btn btn-secondary float-right">Batal</a>
                 </form>
             </div>
         </div>

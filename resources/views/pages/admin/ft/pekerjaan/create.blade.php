@@ -20,7 +20,7 @@
                 <form action="{{route('pekerjaStore')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <input type="text" name="datadiri_id" value="{{$item->id}}">
+                        <input type="hidden" name="datadiri_id" value="{{$item->id}}">
 
                         <label for="pengKerja">Pengalaman Kerja</label>
                         <textarea class="form-control" id="pengKerja" rows="3" name="pengKerja"></textarea>
@@ -29,7 +29,7 @@
                         <input type="text" class="form-control" id="pekSkrng" name="pekSkrng" placeholder="Pekerjaan Sekarang...">
                     </div>
                     <button type="submit" class="btn btn-success mt-3" style="margin-top: 10px">Simpan</button>
-                    <a href="/admin/datadiri/{{$item->id}}" class="btn btn-secondary float-right">Batal</a>
+                    <a href="/gbt/datadiri/{{$item->id}}" class="btn btn-secondary float-right">Batal</a>
                 </form>
             </div>
         </div>

@@ -27,7 +27,7 @@
                         <input type="text" class="form-control" id="pelSkrng" name="pelSkrng" placeholder="Pelayanan Sekarang...">
                     </div>
                     <button type="submit" class="btn btn-success mt-3" style="margin-top: 10px">Simpan</button>
-                    <a href="/admin/datadiri/{{$item->id}}" class="btn btn-secondary float-right">Batal</a>
+                    <a href="/gbt/datadiri/{{$item->id}}" class="btn btn-secondary float-right">Batal</a>
                 </form>
             </div>
         </div>

@@ -33,7 +33,7 @@
                         <input type="file" class="form-control-file" id="surat_baptis" name="surat_baptis">
                     </div>
                     <button type="submit" class="btn btn-success mt-3" style="margin-top: 10px">Simpan</button>
-                    <a href="/admin/datadiri/{{$item->id}}" class="btn btn-secondary float-right">Batal</a>
+                    <a href="/gbt/datadiri/{{$item->id}}" class="btn btn-secondary float-right">Batal</a>
                 </form>
             </div>
         </div>

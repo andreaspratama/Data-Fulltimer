@@ -69,7 +69,7 @@
                     </div> --}}
                     <div class="tombolAksi mt-3">
                         <button type="submit" class="btn btn-success">Simpan</button>
-                        <a href="/admin/datadiri/{{$item->id}}" class="btn btn-secondary float-right mr-3">Batal</a>
+                        <a href="/gbt/datadiri/{{$item->id}}" class="btn btn-secondary float-right mr-3">Batal</a>
                         {{-- <a href="{{route('gb.index')}}" class="btn btn-secondary">Batal</a> --}}
                     </div>
                 </form>
