@@ -20,8 +20,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::post('user/tambahUser', [UserController::class, 'tambahUser'])->name('tambahUser');
+
 Route::group(['middleware' => 'auth'], function(){
-    Route::prefix('admin')->group(function () {
+    Route::prefix('gbt')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     
         Route::post('datadiri/importExcelDiri', [DatadiriController::class, 'importExcelDiri'])->name('importExcelDiri');

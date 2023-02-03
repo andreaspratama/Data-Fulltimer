@@ -28,6 +28,7 @@ class KeluargaImport implements ToModel
 
     public function model(array $row)
     {
+        dd($row[3]);
         $tgl = strtr($row[3], '/', '-');
         $htgl = date('Y-m-d', strtotime($tgl));
 
