@@ -38,7 +38,7 @@
                         <input type="text" class="form-control" id="tlahirPasa" name="tlahirPasa" placeholder="Tempat Lahir...">
 
                         <label for="tgllahirPasa" class="mt-3">Tanggal Lahir</label>
-                        <input type="text" class="form-control" id="tgllahirPasa" name="tgllahirPasa" placeholder="Tanggal Lahir...">
+                        <input type="date" class="form-control" id="tgllahirPasa" name="tgllahirPasa" placeholder="Tanggal Lahir...">
 
                         <label for="pekerjaanPasa" class="mt-3">Pekerjaan</label>
                         <input type="text" class="form-control" id="pekerjaanPasa" name="pekerjaanPasa" placeholder="pekerjaan...">
@@ -73,7 +73,4 @@
     <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $('#tgllahirPasa').datepicker();
-    </script>
 @endpush

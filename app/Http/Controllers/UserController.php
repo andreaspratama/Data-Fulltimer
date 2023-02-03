@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return "User Create";
     }
 
     /**
@@ -40,10 +40,23 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
+    public function store(Request $request)
+    {
+        // // Insert ke User
+        // $user = new User;
+        // $user->name = $request->nama;
+        // $user->email = $request->email;
+        // $user->password = bcrypt('user123**');
+        // $user->role = 'user';
+        // $user->save();        
+
+        // // Insert ke Datadiri
+        // $request->request->add(['user_id' => $user->id]);
+        // $data = $request->all();
+        // Datadiri::create($data);
+
+        // return redirect()->route('login')->with('success', 'Pendaftaran Berhasil');
+    }
 
     public function tambahUser(Request $request)
     {
