@@ -17,7 +17,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit Data Pelayanan</h6>
             </div>
             <div class="card-body">
-                <form action="/admin/pelayanUpdate/{{$pelayan->id}}" method="POST">
+                <form action="/gbt/pelayanUpdate/{{$pelayan->id}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

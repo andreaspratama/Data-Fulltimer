@@ -17,7 +17,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit Data Full Timer, Staff, Karyawan</h6>
             </div>
             <div class="card-body">
-                <form action="/admin/kelUpdate/{{$kel->id}}" method="POST">
+                <form action="/gbt/kelUpdate/{{$kel->id}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

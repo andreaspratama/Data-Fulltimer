@@ -17,7 +17,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit Data Pendidikan</h6>
             </div>
             <div class="card-body">
-                <form action="/admin/pendUpdate/{{$pend->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/gbt/pendUpdate/{{$pend->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

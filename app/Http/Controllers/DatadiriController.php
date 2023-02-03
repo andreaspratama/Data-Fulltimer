@@ -146,7 +146,13 @@ class DatadiriController extends Controller
         $item = Datadiri::findOrFail($id);
         $item->update($data);
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Diubah');
+        $update_u = $item->user_id;
+        $baru = User::find($update_u);
+        $baru->name = $request->nama;
+        $baru->email = $request->email;
+        $baru->save();
+
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Diubah');
     }
 
     /**
@@ -209,7 +215,7 @@ class DatadiriController extends Controller
         $kel->pend_akhir = $request->pend_akhir;
         $kel->save();
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function kelEdit($id)
@@ -232,7 +238,7 @@ class DatadiriController extends Controller
         $kel->pend_akhir = $request->pend_akhir;
         $kel->save();
 
-        return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
     }
 
     public function importExcelKel(Request $request)
@@ -267,7 +273,7 @@ class DatadiriController extends Controller
         $kep->transport = $request->transport;
         $kep->save();
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function kepEdit($id)
@@ -287,7 +293,7 @@ class DatadiriController extends Controller
         $kep->transport = $request->transport;
         $kep->save();
 
-        return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
     }
 
     // Data Pekerjaan
@@ -308,7 +314,7 @@ class DatadiriController extends Controller
         $pekerja->pekSkrng = $request->pekSkrng;
         $pekerja->save();
 
-        return redirect('admin/datadiri/'.$kem)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$kem)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function pekerjaEdit($id)
@@ -327,7 +333,7 @@ class DatadiriController extends Controller
         $pekerja->pekSkrng = $request->pekSkrng;
         $pekerja->save();
 
-        return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
     }
 
     // Data Pelayanan
@@ -348,7 +354,7 @@ class DatadiriController extends Controller
         $pelayan->pelSkrng = $request->pelSkrng;
         $pelayan->save();
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function pelayanEdit($id)
@@ -367,7 +373,7 @@ class DatadiriController extends Controller
         $pelayan->pelSkrng = $request->pelSkrng;
         $pelayan->save();
 
-        return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
     }
 
     // Data Pendidikan
@@ -396,7 +402,7 @@ class DatadiriController extends Controller
         $pend->pelatihanImg = request()->file('pelatihanImg')->store('assets/ft', 'public');
         $pend->save();
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function pendEdit($id)
@@ -457,7 +463,7 @@ class DatadiriController extends Controller
         $pend->pelatihanImg = $pi;
         $pend->save();
 
-        return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
     }
 
     // Data Prestasi
@@ -478,7 +484,7 @@ class DatadiriController extends Controller
         $pres->presImg = request()->file('presImg')->store('assets/ft', 'public');
         $pres->save();
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function presEdit($id)
@@ -509,7 +515,7 @@ class DatadiriController extends Controller
         $pres->presImg = $pi;
         $pres->save();
 
-        return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
     }
 
     // Data Dokumen
@@ -532,7 +538,7 @@ class DatadiriController extends Controller
         $dok->surat_baptis = request()->file('surat_baptis')->store('assets/ft', 'public');
         $dok->save();
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function dokEdit($id)
@@ -598,7 +604,7 @@ class DatadiriController extends Controller
         $dok->surat_baptis = $sb;
         $dok->save();
 
-        return redirect('admin/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$dd)->with('success', 'Data Berhasil Diubah');
     }
 
     // Data Anak
@@ -630,7 +636,7 @@ class DatadiriController extends Controller
             }
         }
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Ditambah');
     }
 
     public function anakEdit($id)
@@ -664,7 +670,7 @@ class DatadiriController extends Controller
             }
         }
 
-        return redirect('admin/datadiri/'.$id)->with('success', 'Data Berhasil Diubah');
+        return redirect('gbt/datadiri/'.$id)->with('success', 'Data Berhasil Diubah');
     }
 
     public function ddexportExcel()

@@ -17,7 +17,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit Data Prestasi</h6>
             </div>
             <div class="card-body">
-                <form action="/admin/presUpdate/{{$pres->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/gbt/presUpdate/{{$pres->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

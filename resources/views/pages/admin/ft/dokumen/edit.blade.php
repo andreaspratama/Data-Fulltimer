@@ -17,7 +17,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit Data Dokumen</h6>
             </div>
             <div class="card-body">
-                <form action="/admin/dokUpdate/{{$dok->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/gbt/dokUpdate/{{$dok->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
